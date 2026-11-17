@@ -1,0 +1,275 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Check, Target, Eye, Heart, ArrowRight } from 'lucide-react';
+import { useMeta } from '../hooks/useMeta';
+import PageHeader from '../components/PageHeader';
+
+export default function About() {
+  useMeta({
+    title: 'About Us',
+    description:
+      "Learn about VEXARO Courier Solution, headquartered in Indore, MP. India's modern courier partner."
+  });
+
+  const foundation = [
+    {
+      icon: <Target size={22} className="text-orange" />,
+      title: 'Our Mission',
+      text: 'To make courier services effortless for every Indian business — from first-time entrepreneurs to established enterprises — through technology, reliability, and genuine care.',
+      bg: 'bg-orange-50 border-orange/20'
+    },
+    {
+      icon: <Eye size={22} className="text-navy" />,
+      title: 'Our Vision',
+      text: "To become India's most trusted courier technology company — powering commerce across every city, town, and village with speed and transparency.",
+      bg: 'bg-navy-50 border-navy/20'
+    },
+    {
+      icon: <Heart size={22} className="text-orange" />,
+      title: 'Our Values',
+      text: 'Trust over transactions. Speed with safety. Technology with humanity. Every shipment tells a story — and we treat each one with the respect it deserves.',
+      bg: 'bg-orange-50 border-orange/20'
+    }
+  ];
+
+  const strengths = [
+    {
+      icon: '🚀',
+      title: 'Technology-Driven',
+      text: 'API-ready infrastructure, real-time dashboards, and smart routing algorithms power our entire network.'
+    },
+    {
+      icon: '🗺️',
+      title: 'Deep Regional Reach',
+      text: 'Unlike metro-only couriers, VEXARO is built for mid-India — Indore, Bhopal, Raipur, Nagpur and beyond.'
+    },
+    {
+      icon: '⚡',
+      title: 'Speed at Scale',
+      text: '2,500+ daily shipments processed with 98% on-time delivery through optimised last-mile networks.'
+    },
+    {
+      icon: '🔒',
+      title: 'End-to-End Security',
+      text: 'Every shipment is tracked, handled with care, and available for insurance — zero compromise on safety.'
+    },
+    {
+      icon: '🤝',
+      title: 'Client-First Culture',
+      text: 'Every client gets a dedicated account manager. We measure success by your satisfaction, not just deliveries.'
+    },
+    {
+      icon: '📊',
+      title: 'Data & Analytics',
+      text: 'Live shipment analytics, demand forecasting, and performance reports empower better business decisions.'
+    }
+  ];
+
+  const networkStats = [
+    { v: '100+', l: 'Cities', s: 'Pan-India coverage' },
+    { v: '1,000+', l: 'Pin Codes', s: 'Last-mile reach' },
+    { v: '20+', l: 'Hubs', s: 'Fulfilment centres' },
+    { v: '5000+', l: 'Agents', s: 'Last-mile partners' }
+  ];
+
+  return (
+    <>
+      <PageHeader
+        title="About VEXARO"
+        subtitle="The story behind India's modern courier company — built on trust, powered by technology."
+        breadcrumb="About Us"
+      />
+
+      {/* 1. OUR STORY */}
+      <section className="section-padding bg-white flex-1">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Story Text */}
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-navy-50 border border-navy/20 rounded-full mb-4">
+                <span className="text-navy text-xs font-medium font-heading uppercase tracking-wider">
+                  Our Story
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold font-heading text-charcoal mb-5 leading-tight">
+                Born in Indore.
+                <br />
+                <span className="gradient-text-navy">Built for India.</span>
+              </h2>
+              <p className="text-graphite font-body leading-relaxed mb-4">
+                VEXARO Courier Solution Pvt. Ltd. was founded in Vijay Nagar, Indore, Madhya
+                Pradesh — with a singular vision: to create a courier company that combines
+                reliability with the speed of modern technology.
+              </p>
+              <p className="text-graphite font-body leading-relaxed mb-6">
+                Founded by <strong>Sonu Tiwari</strong> and{' '}
+                <strong>Nikhil Pratap Singh</strong>, VEXARO was built from the ground up with a
+                technology-first approach, targeting underserved regions and rapidly expanding
+                nationwide.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  'Headquartered in Vijay Nagar, Indore, MP',
+                  '100+ Cities across India',
+                  '2,500+ daily shipments',
+                  '300+ trusted clients'
+                ].map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-center gap-3 text-charcoal text-sm font-body"
+                  >
+                    <Check
+                      className={idx % 2 === 0 ? 'text-navy' : 'text-orange'}
+                      size={14}
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right Trust Stats Box */}
+            <div>
+              <div className="relative">
+                <div className="bg-light-blue border border-soft-border rounded-card p-8 relative z-10 shadow-card">
+                  <div className="text-6xl font-bold font-heading gradient-text-navy mb-2">
+                    TRUSTED
+                  </div>
+                  <div className="text-graphite text-sm font-body mb-1">Delivery Partner</div>
+                  <div className="text-graphite/60 text-xs font-body mb-6">
+                    Vijay Nagar, Indore, Madhya Pradesh
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    {[
+                      { v: '2.5K+', l: 'Daily Shipments' },
+                      { v: '100+', l: 'Cities Served' },
+                      { v: '300+', l: 'Business Clients' },
+                      { v: '98%', l: 'Success Rate' }
+                    ].map((stat, idx) => (
+                      <div
+                        key={idx}
+                        className={`rounded-xl p-4 text-center text-white ${
+                          idx % 2 === 0 ? 'gradient-navy' : 'gradient-orange'
+                        }`}
+                      >
+                        <div className="text-2xl font-bold font-heading">{stat.v}</div>
+                        <div className="text-white/70 text-xs font-body">{stat.l}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-navy/15 rounded-card -z-0" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. OUR FOUNDATION */}
+      <section className="section-padding bg-cream border-y border-soft-border">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-charcoal mb-3">
+              Our Foundation
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {foundation.map((item, idx) => (
+              <div
+                key={idx}
+                className={`p-8 rounded-card border card-hover ${item.bg} transition-all duration-300`}
+              >
+                <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-5 shadow-card">
+                  {item.icon}
+                </div>
+                <h3 className="font-bold font-heading text-charcoal text-xl mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-graphite font-body text-sm leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. OUR STRENGTHS */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-orange-50 border border-orange/20 rounded-full mb-4">
+              <span className="text-orange text-xs font-medium font-heading uppercase tracking-wider">
+                Our Strengths
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-charcoal mb-3">
+              What Makes Us Strong
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {strengths.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white border border-soft-border rounded-card p-6 card-hover group hover:border-navy/30 transition-all duration-300"
+              >
+                <div className="text-3xl mb-4">{item.icon}</div>
+                <h3 className="font-bold font-heading text-charcoal mb-2">{item.title}</h3>
+                <p className="text-graphite text-sm font-body leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. LEADERSHIP QUOTE BANNER */}
+      <section className="section-padding bg-light-blue">
+        <div className="container-custom max-w-3xl text-center">
+          <div className="w-16 h-16 rounded-full gradient-duo flex items-center justify-center mx-auto mb-6 shadow-navy">
+            <span className="text-white font-bold text-xl font-heading">V</span>
+          </div>
+          <blockquote className="text-2xl md:text-3xl font-heading font-light text-charcoal leading-relaxed italic mb-6">
+            "We built VEXARO not just to move packages — but to move businesses forward. Every
+            delivery is a promise, and every promise is a commitment we take personally."
+          </blockquote>
+          <div className="w-12 h-1 gradient-orange rounded-full mx-auto mb-4" />
+          <div className="font-semibold font-heading text-charcoal">
+            Sonu Tiwari & Nikhil Pratap Singh
+          </div>
+          <div className="text-graphite text-sm font-body">
+            Co-Founders, VEXARO Courier Solution Pvt. Ltd.
+          </div>
+        </div>
+      </section>
+
+      {/* 5. CONNECTING EVERY CORNER OF INDIA */}
+      <section className="section-padding bg-white border-t border-soft-border">
+        <div className="container-custom text-center">
+          <div className="mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading text-charcoal mb-3">
+              Connecting Every Corner of India
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-10">
+            {networkStats.map((item, idx) => (
+              <div
+                key={idx}
+                className={`rounded-card p-6 text-center text-white ${
+                  idx % 2 === 0 ? 'gradient-navy' : 'gradient-orange'
+                }`}
+              >
+                <div className="text-3xl font-bold font-heading mb-1">{item.v}</div>
+                <div className="text-white font-semibold font-heading text-sm mb-1">{item.l}</div>
+                <div className="text-white/60 text-xs font-body">{item.s}</div>
+              </div>
+            ))}
+          </div>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 px-8 py-3.5 gradient-orange text-white font-semibold font-heading rounded-btn shadow-orange hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+          >
+            Partner With Us <ArrowRight size={14} />
+          </Link>
+        </div>
+      </section>
+    </>
+  );
+}

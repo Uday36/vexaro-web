@@ -1,0 +1,419 @@
+{
+  "source": "http://localhost:5173/",
+  "capturedAt": "2026-11-17T07:36:18.097Z",
+  "pages": [
+    {
+      "url": "http://localhost:5173/",
+      "title": "Home | VEXARO Courier Solutions",
+      "index": 1
+    },
+    {
+      "url": "http://localhost:5173/about",
+      "title": "About Us | VEXARO Courier Solutions",
+      "index": 2
+    },
+    {
+      "url": "http://localhost:5173/services",
+      "title": "Services | VEXARO Courier Solutions",
+      "index": 3
+    },
+    {
+      "url": "http://localhost:5173/pricing",
+      "title": "Pricing Plans | VEXARO Courier Solutions",
+      "index": 4
+    },
+    {
+      "url": "http://localhost:5173/partners",
+      "title": "Partners | VEXARO Courier Solutions",
+      "index": 5
+    },
+    {
+      "url": "http://localhost:5173/contact",
+      "title": "Contact Us | VEXARO Courier Solutions",
+      "index": 6
+    },
+    {
+      "url": "http://localhost:5173/track",
+      "title": "Track Shipment | VEXARO Courier Solutions",
+      "index": 7
+    },
+    {
+      "url": "http://localhost:5173/terms",
+      "title": "Terms & Conditions | VEXARO Courier Solutions",
+      "index": 8
+    },
+    {
+      "url": "http://localhost:5173/privacy",
+      "title": "Privacy Policy | VEXARO Courier Solutions",
+      "index": 9
+    },
+    {
+      "url": "http://localhost:5173/resources",
+      "title": "Resources | VEXARO Courier Solutions",
+      "index": 10
+    }
+  ],
+  "assets": [
+    {
+      "url": "http://localhost:5173/new-logo.png",
+      "file": "assets/6e8e18c0c9b1.png",
+      "contentType": "image/png",
+      "size": 467653
+    },
+    {
+      "url": "http://localhost:5173/hero_background.png",
+      "file": "assets/59b4b1f7a786.png",
+      "contentType": "image/png",
+      "size": 1836213
+    },
+    {
+      "url": "http://localhost:5173/trusted-secure.png",
+      "file": "assets/41b1906b429b.png",
+      "contentType": "image/png",
+      "size": 1545226
+    },
+    {
+      "url": "http://localhost:5173/lightning-speed.png",
+      "file": "assets/64a68e15bbcb.png",
+      "contentType": "image/png",
+      "size": 1582382
+    },
+    {
+      "url": "http://localhost:5173/pan-india-reach.png",
+      "file": "assets/d4e4e7be60f1.png",
+      "contentType": "image/png",
+      "size": 1720019
+    },
+    {
+      "url": "http://localhost:5173/24-7-support.png",
+      "file": "assets/1f3e1adba104.png",
+      "contentType": "image/png",
+      "size": 1682115
+    },
+    {
+      "url": "http://localhost:5173/speed-precision.png",
+      "file": "assets/2846b2ac40ef.png",
+      "contentType": "image/png",
+      "size": 1733871
+    },
+    {
+      "url": "http://localhost:5173/real-time-tracking.png",
+      "file": "assets/e0eca30fb8ed.png",
+      "contentType": "image/png",
+      "size": 1382041
+    },
+    {
+      "url": "http://localhost:5173/safe-secure.png",
+      "file": "assets/eaefb1adebdb.png",
+      "contentType": "image/png",
+      "size": 1437307
+    },
+    {
+      "url": "http://localhost:5173/dedicated-support.png",
+      "file": "assets/3f405a2a3116.png",
+      "contentType": "image/png",
+      "size": 1488867
+    },
+    {
+      "url": "http://localhost:5173/widest-network.png",
+      "file": "assets/a9d8f4c3778f.png",
+      "contentType": "image/png",
+      "size": 1652555
+    },
+    {
+      "url": "http://localhost:5173/technology-first.png",
+      "file": "assets/b1f044e34d50.png",
+      "contentType": "image/png",
+      "size": 1509585
+    },
+    {
+      "url": "http://localhost:5173/client-rajesh.png",
+      "file": "assets/9f79ede0a763.png",
+      "contentType": "image/png",
+      "size": 1611221
+    },
+    {
+      "url": "http://localhost:5173/client-priya.png",
+      "file": "assets/b7a012da9db1.png",
+      "contentType": "image/png",
+      "size": 1627019
+    },
+    {
+      "url": "http://localhost:5173/client-ankit.png",
+      "file": "assets/cea8ab9c7bfe.png",
+      "contentType": "image/png",
+      "size": 1580942
+    },
+    {
+      "url": "http://localhost:5173/client-divya.png",
+      "file": "assets/d484bc529245.png",
+      "contentType": "image/png",
+      "size": 1556313
+    },
+    {
+      "url": "http://localhost:5173/client-suresh.png",
+      "file": "assets/10d200414ddd.png",
+      "contentType": "image/png",
+      "size": 1805682
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap",
+      "file": "assets/6f4691c92e3c.bin",
+      "contentType": "text/css; charset=utf-8",
+      "size": 2645
+    },
+    {
+      "url": "http://localhost:5173/@vite/client",
+      "file": "assets/3c2038ddc6d2.bin",
+      "contentType": "text/javascript",
+      "size": 222716
+    },
+    {
+      "url": "http://localhost:5173/src/main.jsx",
+      "file": "assets/0bd82c4e819a.jsx",
+      "contentType": "text/javascript",
+      "size": 1630
+    },
+    {
+      "url": "http://localhost:5173/@react-refresh",
+      "file": "assets/4a3a2c367f17.bin",
+      "contentType": "text/javascript",
+      "size": 118969
+    },
+    {
+      "url": "http://localhost:5173/node_modules/.vite/deps/react.js?v=7dd63f62",
+      "file": "assets/2013d5148369.js",
+      "contentType": "text/javascript",
+      "size": 755
+    },
+    {
+      "url": "http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=7dd63f62",
+      "file": "assets/3a17242b3ecf.js",
+      "contentType": "text/javascript",
+      "size": 3132085
+    },
+    {
+      "url": "http://localhost:5173/src/index.css",
+      "file": "assets/b3d3fabad89f.css",
+      "contentType": "text/javascript",
+      "size": 49687
+    },
+    {
+      "url": "http://localhost:5173/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=7dd63f62",
+      "file": "assets/e371ef982f7d.js",
+      "contentType": "text/javascript",
+      "size": 35641
+    },
+    {
+      "url": "http://localhost:5173/src/App.jsx",
+      "file": "assets/7ebabdb42bfd.jsx",
+      "contentType": "text/javascript",
+      "size": 12163
+    },
+    {
+      "url": "http://localhost:5173/node_modules/vite/dist/client/env.mjs",
+      "file": "assets/c17c8c1d156b.mjs",
+      "contentType": "text/javascript",
+      "size": 3390
+    },
+    {
+      "url": "http://localhost:5173/node_modules/.vite/deps/react-D57lpOvP.js?v=7dd63f62",
+      "file": "assets/0643f727cdcc.js",
+      "contentType": "text/javascript",
+      "size": 136642
+    },
+    {
+      "url": "http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=7dd63f62",
+      "file": "assets/8c6b8f094a10.js",
+      "contentType": "text/javascript",
+      "size": 1433370
+    },
+    {
+      "url": "http://localhost:5173/src/components/Navbar.jsx",
+      "file": "assets/c85b9c3e7ecb.jsx",
+      "contentType": "text/javascript",
+      "size": 18555
+    },
+    {
+      "url": "http://localhost:5173/src/components/Footer.jsx",
+      "file": "assets/e5f027840666.jsx",
+      "contentType": "text/javascript",
+      "size": 38332
+    },
+    {
+      "url": "http://localhost:5173/src/pages/Home.jsx",
+      "file": "assets/6f07baa78320.jsx",
+      "contentType": "text/javascript",
+      "size": 73680
+    },
+    {
+      "url": "http://localhost:5173/src/pages/Services.jsx",
+      "file": "assets/c9b325e2ff64.jsx",
+      "contentType": "text/javascript",
+      "size": 18990
+    },
+    {
+      "url": "http://localhost:5173/src/pages/About.jsx",
+      "file": "assets/cf9f4590b2ec.jsx",
+      "contentType": "text/javascript",
+      "size": 44927
+    },
+    {
+      "url": "http://localhost:5173/src/pages/Pricing.jsx",
+      "file": "assets/a710650cdadd.jsx",
+      "contentType": "text/javascript",
+      "size": 17682
+    },
+    {
+      "url": "http://localhost:5173/src/pages/Partners.jsx",
+      "file": "assets/d6ed1a1b893e.jsx",
+      "contentType": "text/javascript",
+      "size": 21235
+    },
+    {
+      "url": "http://localhost:5173/src/pages/Track.jsx",
+      "file": "assets/1acd2abe62ba.jsx",
+      "contentType": "text/javascript",
+      "size": 35816
+    },
+    {
+      "url": "http://localhost:5173/src/pages/Contact.jsx",
+      "file": "assets/70e2a8debc9b.jsx",
+      "contentType": "text/javascript",
+      "size": 62689
+    },
+    {
+      "url": "http://localhost:5173/src/pages/Legal.jsx",
+      "file": "assets/5918c8da5181.jsx",
+      "contentType": "text/javascript",
+      "size": 15462
+    },
+    {
+      "url": "http://localhost:5173/node_modules/.vite/deps/react-dom-CAgWe78a.js?v=7dd63f62",
+      "file": "assets/67af8e14a139.js",
+      "contentType": "text/javascript",
+      "size": 50848
+    },
+    {
+      "url": "http://localhost:5173/node_modules/.vite/deps/lucide-react.js?v=7dd63f62",
+      "file": "assets/2c79a9c13f46.js",
+      "contentType": "text/javascript",
+      "size": 5722961
+    },
+    {
+      "url": "http://localhost:5173/src/data/siteData.js",
+      "file": "assets/dacccb4ac83f.js",
+      "contentType": "text/javascript",
+      "size": 54080
+    },
+    {
+      "url": "http://localhost:5173/src/hooks/useMeta.js",
+      "file": "assets/f42303d79106.js",
+      "contentType": "text/javascript",
+      "size": 1758
+    },
+    {
+      "url": "http://localhost:5173/src/components/StatCounter.jsx",
+      "file": "assets/e2f985a26f70.jsx",
+      "contentType": "text/javascript",
+      "size": 11378
+    },
+    {
+      "url": "http://localhost:5173/src/components/ShipmentJourney.jsx",
+      "file": "assets/9138929346f7.jsx",
+      "contentType": "text/javascript",
+      "size": 42926
+    },
+    {
+      "url": "http://localhost:5173/src/components/TestimonialsSlider.jsx",
+      "file": "assets/b981899fdf55.jsx",
+      "contentType": "text/javascript",
+      "size": 15089
+    },
+    {
+      "url": "http://localhost:5173/src/components/IconHelper.jsx",
+      "file": "assets/4a4b772b0b0d.jsx",
+      "contentType": "text/javascript",
+      "size": 9681
+    },
+    {
+      "url": "http://localhost:5173/src/components/PageHeader.jsx",
+      "file": "assets/6f92a2f9d6e3.jsx",
+      "contentType": "text/javascript",
+      "size": 13801
+    },
+    {
+      "url": "http://localhost:5173/dhl.png",
+      "file": "assets/3ebfa9d77e11.png",
+      "contentType": "image/png",
+      "size": 910324
+    },
+    {
+      "url": "http://localhost:5173/amazon-shipping.png",
+      "file": "assets/27e12100597a.png",
+      "contentType": "image/png",
+      "size": 765274
+    },
+    {
+      "url": "http://localhost:5173/aramex.png",
+      "file": "assets/c4bdc7139baf.png",
+      "contentType": "image/png",
+      "size": 676791
+    },
+    {
+      "url": "http://localhost:5173/ekart.png",
+      "file": "assets/d92f0258bb77.png",
+      "contentType": "image/png",
+      "size": 647818
+    },
+    {
+      "url": "http://localhost:5173/xpressbees.png",
+      "file": "assets/2eb859a0730a.png",
+      "contentType": "image/png",
+      "size": 785586
+    },
+    {
+      "url": "http://localhost:5173/skynet.png",
+      "file": "assets/e55e7772969a.png",
+      "contentType": "image/png",
+      "size": 760506
+    },
+    {
+      "url": "http://localhost:5173/fedex.png",
+      "file": "assets/56d77049f990.png",
+      "contentType": "image/png",
+      "size": 665967
+    },
+    {
+      "url": "http://localhost:5173/ecom-express.png",
+      "file": "assets/9fda3b4d1ac8.png",
+      "contentType": "image/png",
+      "size": 842044
+    },
+    {
+      "url": "http://localhost:5173/logoxpress.png",
+      "file": "assets/6c1b0ef519c8.png",
+      "contentType": "image/png",
+      "size": 785230
+    },
+    {
+      "url": "http://localhost:5173/gati.png",
+      "file": "assets/2112aae1c761.png",
+      "contentType": "image/png",
+      "size": 842109
+    },
+    {
+      "url": "http://localhost:5173/shree-maruti.png",
+      "file": "assets/1a118dfb449e.png",
+      "contentType": "image/png",
+      "size": 848829
+    },
+    {
+      "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.6!2d75.8850!3d22.7534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd0b60e7e67f%3A0x39c3a74a4d30c97c!2sVijay%20Nagar%2C%20Indore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000001",
+      "file": "assets/0c7bc9a36072.bin",
+      "contentType": "text/html; charset=UTF-8",
+      "size": 2348
+    }
+  ],
+  "errors": []
+}
