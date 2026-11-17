@@ -1,8 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Truck, ShoppingBag, Briefcase, Cpu, Check, ChevronRight } from 'lucide-react';
+import { Truck, ShoppingBag, Briefcase, Cpu, Check, ChevronRight } from 'lucide-react';
 import { useMeta } from '../hooks/useMeta';
-import PageHeader from '../components/PageHeader';
+import PageHeader from '../components/layout/PageHeader';
 import { partnerCategories, partnersList } from '../data/siteData';
 
 export default function Partners() {

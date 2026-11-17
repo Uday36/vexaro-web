@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
   MapPin,
   Mail,
   Phone,
   Clock,
-  CheckCircle2,
-  AlertCircle
+  CheckCircle2
 } from 'lucide-react';
 import { useMeta } from '../hooks/useMeta';
-import PageHeader from '../components/PageHeader';
+import PageHeader from '../components/layout/PageHeader';
 import { siteConfig } from '../data/siteData';
 
 export default function Contact() {

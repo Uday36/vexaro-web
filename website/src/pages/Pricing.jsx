@@ -1,7 +1,6 @@
-import React from 'react';
-import { Check, ShieldCheck, ArrowRight, Zap } from 'lucide-react';
+import { Check, ShieldCheck } from 'lucide-react';
 import { useMeta } from '../hooks/useMeta';
-import PageHeader from '../components/PageHeader';
+import PageHeader from '../components/layout/PageHeader';
 import { pricingPlans } from '../data/siteData';
 
 export default function Pricing() {
@@ -39,7 +38,7 @@ export default function Pricing() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {pricingPlans.map((plan, idx) => (
+            {pricingPlans.map((plan) => (
               <div
                 key={plan.name}
                 className={`relative flex flex-col bg-white rounded-2xl border-2 ${plan.theme} p-8 card-hover shadow-card`}

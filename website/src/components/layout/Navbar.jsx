@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { navLinks } from '../data/siteData';
+import { navLinks } from '../../data/siteData';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -15,10 +15,6 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [location]);
 
   return (
     <>

@@ -1,8 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { Check, Mail, Phone, ArrowRight, HelpCircle } from 'lucide-react';
+import { Check, Mail, Phone, HelpCircle } from 'lucide-react';
 import { useMeta } from '../hooks/useMeta';
-import PageHeader from '../components/PageHeader';
+import PageHeader from '../components/layout/PageHeader';
 import { legalData, siteConfig } from '../data/siteData';
 
 export default function Legal({ type = 'terms' }) {

@@ -1,9 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Check, ChevronRight } from 'lucide-react';
 import { useMeta } from '../hooks/useMeta';
-import PageHeader from '../components/PageHeader';
-import IconHelper from '../components/IconHelper';
+import PageHeader from '../components/layout/PageHeader';
+import IconHelper from '../components/common/IconHelper';
 import { servicesData } from '../data/siteData';
 
 export default function Services() {

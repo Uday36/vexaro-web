@@ -1,23 +1,10 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Navigation,
-  ArrowRight,
-  ShieldCheck,
-  Zap,
-  MapPin,
-  Headphones,
-  Radio,
-  Globe,
-  Cpu,
-  ChevronRight,
-  Sparkles
-} from 'lucide-react';
+import { Navigation, ArrowRight, Sparkles } from 'lucide-react';
 import { useMeta } from '../hooks/useMeta';
-import StatCounter from '../components/StatCounter';
-import ShipmentJourney from '../components/ShipmentJourney';
-import TestimonialsSlider from '../components/TestimonialsSlider';
-import IconHelper from '../components/IconHelper';
+import StatCounter from '../components/common/StatCounter';
+import ShipmentJourney from '../components/sections/ShipmentJourney';
+import TestimonialsSlider from '../components/sections/TestimonialsSlider';
+import IconHelper from '../components/common/IconHelper';
 import {
   homeStats,
   aboutFeatures,

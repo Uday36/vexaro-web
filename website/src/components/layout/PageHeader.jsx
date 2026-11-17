@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navigation } from 'lucide-react';
 
@@ -30,40 +29,30 @@ export default function PageHeader({ title, subtitle, breadcrumb }) {
       {/* Floating glowing vehicle / indicator */}
       <div
         aria-hidden="true"
-        className="absolute bottom-8 right-1/4 hidden h-10 w-10 items-center justify-center rounded-full gradient-orange shadow-orange md:flex animate-float"
+        className="absolute bottom-7 left-[8%] hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-navy text-white shadow-[0_0_50px_rgba(224,96,0,0.35)] md:flex pulse-ring"
       >
-        <Navigation className="text-white -rotate-45" size={14} />
+        <Navigation size={14} className="rotate-45" />
       </div>
 
-      <div className="container-custom relative">
-        {breadcrumb && (
-          <div className="flex items-center gap-2 text-sm text-graphite/60 font-body mb-5">
-            <Link to="/" className="hover:text-navy transition-colors">
-              Home
-            </Link>
-            <span className="text-graphite/30">/</span>
-            <span className="text-orange font-medium">{breadcrumb}</span>
-          </div>
-        )}
-
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-navy/15 bg-white/75 px-3 py-1.5 shadow-card backdrop-blur-sm">
-          <div className="w-1.5 h-1.5 rounded-full bg-orange animate-pulse" />
-          <span className="text-[11px] font-heading font-semibold uppercase tracking-wider text-navy">
-            VEXARO Network
-          </span>
+      <div className="container-custom relative z-10 text-center">
+        {/* Breadcrumb pill */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/75 backdrop-blur-md border border-soft-border/50 text-xs font-bold font-heading uppercase tracking-widest text-navy mb-4 shadow-sm">
+          <Link to="/" className="text-graphite hover:text-navy transition-colors">
+            Home
+          </Link>
+          <span className="text-graphite/40">/</span>
+          <span className="text-orange">{breadcrumb || title}</span>
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-bold font-heading text-charcoal mb-4">
+        <h1 className="text-4xl md:text-5xl font-black font-heading text-charcoal mb-4 tracking-tight">
           {title}
         </h1>
 
         {subtitle && (
-          <p className="text-graphite font-body text-base md:text-lg max-w-2xl leading-relaxed">
+          <p className="text-base md:text-lg text-graphite font-body max-w-2xl mx-auto leading-relaxed">
             {subtitle}
           </p>
         )}
-
-        <div className="mt-6 w-16 h-1 gradient-orange rounded-full origin-left" />
       </div>
     </section>
   );

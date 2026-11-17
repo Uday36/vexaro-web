@@ -1,8 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Check, Target, Eye, Heart, ArrowRight } from 'lucide-react';
 import { useMeta } from '../hooks/useMeta';
-import PageHeader from '../components/PageHeader';
+import PageHeader from '../components/layout/PageHeader';
 
 export default function About() {
   useMeta({
