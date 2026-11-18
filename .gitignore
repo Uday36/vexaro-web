@@ -7,7 +7,7 @@ dist/
 website/dist/
 
 # Test & QA outputs
-tools/qa/screenshots/
+tools/visual-qa/screenshots/
 
 # Logs
 logs/

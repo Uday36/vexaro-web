@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "cd website && npm run dev",
     "build": "cd website && npm run build",
-    "qa:check": "node tools/qa/check-console-and-images.mjs",
-    "qa:capture": "node tools/qa/capture-local.mjs",
-    "qa:compare": "node tools/qa/compare-screenshots.mjs"
+    "qa:check": "node tools/visual-qa/check-console-and-images.mjs",
+    "qa:capture": "node tools/visual-qa/capture-local.mjs",
+    "qa:compare": "node tools/visual-qa/compare-screenshots.mjs",
+    "scrape": "node tools/scraper/website-scraper.mjs"
   },
   "keywords": [],
   "author": "",

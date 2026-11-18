@@ -8,7 +8,7 @@ const START_URL =
   process.argv[2] || "https://www.vexarocouriersolutions.com/";
 
 const OUTPUT =
-  process.argv[3] || "reference/capture-data/live";
+  process.argv[3] || "references/live-website";
 
 const MAX_PAGES = 50;
 const DELAY_MS = 1000;

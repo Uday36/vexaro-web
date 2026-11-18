@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const manifestPath = path.resolve(process.cwd(), 'reference/capture-data/live/manifest.json');
+const manifestPath = path.resolve(process.cwd(), 'references/live-website/manifest.json');
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 
 const publicDir = path.resolve(process.cwd(), 'website/public');
@@ -14,7 +14,7 @@ let copiedCount = 0;
 
 for (const asset of manifest.assets) {
   if (asset.contentType && asset.contentType.startsWith('image/')) {
-    const srcPath = path.resolve(process.cwd(), 'reference/capture-data/live', asset.file);
+    const srcPath = path.resolve(process.cwd(), 'references/live-website', asset.file);
     const fileName = path.basename(new URL(asset.url).pathname);
     
     if (fs.existsSync(srcPath)) {

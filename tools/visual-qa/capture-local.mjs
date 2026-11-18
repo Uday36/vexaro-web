@@ -4,7 +4,7 @@ import path from 'path';
 import { chromium } from 'playwright';
 
 const DIST_DIR = path.resolve(process.cwd(), 'website/dist');
-const OUTPUT_DIR = path.resolve(process.cwd(), 'tools/qa/screenshots');
+const OUTPUT_DIR = path.resolve(process.cwd(), 'tools/visual-qa/screenshots');
 
 const MIME_TYPES = {
   '.html': 'text/html',

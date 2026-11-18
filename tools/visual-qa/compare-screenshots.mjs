@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-const LIVE_DIR = path.resolve(process.cwd(), 'reference/capture-data/live/screenshots');
-const LOCAL_DIR = path.resolve(process.cwd(), 'tools/qa/screenshots');
+const LIVE_DIR = path.resolve(process.cwd(), 'references/live-website/screenshots');
+const LOCAL_DIR = path.resolve(process.cwd(), 'tools/visual-qa/screenshots');
 
 const pages = [
   { index: 1, name: 'Home' },
