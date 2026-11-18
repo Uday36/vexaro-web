@@ -4,7 +4,7 @@ import path from 'path';
 const manifestPath = path.resolve(process.cwd(), 'references/live-website/manifest.json');
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 
-const publicDir = path.resolve(process.cwd(), 'website/public');
+const publicDir = path.resolve(process.cwd(), 'public');
 
 if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(publicDir, { recursive: true });

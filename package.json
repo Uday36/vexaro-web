@@ -1,21 +1,37 @@
 {
   "name": "vexaro-reconstruction",
-  "version": "1.0.0",
-  "description": "Vexaro Courier Solutions website reconstruction & developer tooling",
   "private": true,
+  "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "cd website && npm run dev",
-    "build": "cd website && npm run build",
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
     "qa:check": "node tools/visual-qa/check-console-and-images.mjs",
     "qa:capture": "node tools/visual-qa/capture-local.mjs",
     "qa:compare": "node tools/visual-qa/compare-screenshots.mjs",
     "scrape": "node tools/scraper/website-scraper.mjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
+  "dependencies": {
+    "gsap": "^3.15.1",
+    "lucide-react": "^1.74.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5"
+  },
   "devDependencies": {
-    "playwright": "^1.65.1"
+    "@eslint/js": "^10.0.1",
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "eslint": "^10.14.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.13.0",
+    "playwright": "^1.65.1",
+    "tailwindcss": "^4.3.5",
+    "vite": "^8.3.6"
   }
 }

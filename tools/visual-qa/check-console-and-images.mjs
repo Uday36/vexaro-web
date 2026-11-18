@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { chromium } from 'playwright';
 
-const DIST_DIR = path.resolve(process.cwd(), 'website/dist');
+const DIST_DIR = path.resolve(process.cwd(), 'dist');
 
 const MIME_TYPES = {
   '.html': 'text/html',
