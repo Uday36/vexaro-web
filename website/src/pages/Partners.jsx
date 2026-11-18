@@ -84,29 +84,33 @@ function Partners() {
             <h3 className="text-2xl font-bold font-heading text-charcoal mb-2">Trusted By</h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-20">
             {partnersList.map((partner, idx) => (
               <div
                 key={idx}
-                className="border border-soft-border rounded-card p-6 hover:shadow-card transition-all duration-300 flex flex-col justify-between"
+                className="bg-white border border-soft-border rounded-card p-6 card-hover flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4 w-full min-h-full break-words"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-heading font-bold text-lg text-charcoal">
-                      {partner.name}
-                    </span>
-                    <span className="text-[11px] font-heading font-medium px-2.5 py-1 rounded-full bg-light-blue text-navy">
-                      {partner.cat}
-                    </span>
-                  </div>
-                  <p className="text-graphite text-sm font-body mb-6">{partner.desc}</p>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-                <div className="border-t border-soft-border pt-4 flex items-center justify-between">
-                  <span className="text-xs text-graphite/60 font-body">Integration Status</span>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 font-heading">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Live & Active
-                  </span>
+                <div className="w-full flex-1 min-w-0">
+                  <div className="font-bold font-heading text-charcoal text-base md:text-lg">
+                    {partner.name}
+                  </div>
+                  <div
+                    className={`text-xs md:text-sm font-heading font-medium mb-1 ${
+                      idx % 2 === 0 ? 'text-navy' : 'text-orange'
+                    }`}
+                  >
+                    {partner.cat}
+                  </div>
+                  <p className="text-graphite text-xs md:text-sm font-body leading-relaxed break-words">
+                    {partner.desc}
+                  </p>
                 </div>
               </div>
             ))}
