@@ -1,20 +1,20 @@
 {
   "name": "vexaro-reconstruction",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Vexaro Courier Solutions website reconstruction & developer tooling",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cd website && npm run dev",
+    "build": "cd website && npm run build",
+    "qa:check": "node tools/qa/check-console-and-images.mjs",
+    "qa:capture": "node tools/qa/capture-local.mjs",
+    "qa:compare": "node tools/qa/compare-screenshots.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "playwright": "^1.65.1"
-  },
-  "dependencies": {
-    "framer-motion": "^14.14.0",
-    "three": "^0.187.0"
   }
 }

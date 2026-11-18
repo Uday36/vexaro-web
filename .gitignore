@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+website/node_modules/
+
+# Production build output
+dist/
+website/dist/
+
+# Test & QA outputs
+tools/qa/screenshots/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
