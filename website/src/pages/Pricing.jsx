@@ -1,7 +1,7 @@
-import { Check, ShieldCheck } from 'lucide-react';
+import React from 'react';
+import { FaStar, FaCheckCircle } from '../components/IconHelper';
 import { useMeta } from '../hooks/useMeta';
-import PageHeader from '../components/layout/PageHeader';
-import { pricingPlans } from '../data/siteData';
+import PageHeader from '../components/PageHeader';
 
 export default function Pricing() {
   useMeta({
@@ -10,11 +10,62 @@ export default function Pricing() {
       'Explore VEXARO Courier Solution pricing plans. We offer Gold, Platinum, and Partial payment options with the lowest charges.'
   });
 
+  const fixedAmounts = { Gold: 25960, Platinum: 36580 };
+
+  const getRazorpayUrl = (amount) => {
+    const trimmed = String(amount).trim();
+    if (!/^\d+$/.test(trimmed)) return null;
+    const num = Number(trimmed);
+    return !Number.isFinite(num) || num <= 0
+      ? null
+      : `https://pages.razorpay.com/pl_T9M4P1xtR0lUnn/view?amount=${num}`;
+  };
+
   const handlePay = (plan) => {
-    if (plan.link) {
-      window.location.assign(plan.link);
+    const targetUrl =
+      plan.name === 'Partial Amount'
+        ? 'https://rzp.io/rzp/6XcH8YQj'
+        : getRazorpayUrl(fixedAmounts[plan.name]);
+    if (targetUrl) {
+      window.location.assign(targetUrl);
     }
   };
+
+  const plans = [
+    {
+      name: 'Gold',
+      price: 'Rs.25,960',
+      gst: '(incl. 18% GST)',
+      popular: true,
+      features: ['Courier solution', 'Lowest charges'],
+      buttonText: 'Pay Now',
+      theme: 'border-orange',
+      bg: 'bg-orange-50',
+      buttonClass: 'gradient-orange text-white'
+    },
+    {
+      name: 'Platinum',
+      price: 'Rs.36,580',
+      gst: '(incl. 18% GST)',
+      popular: false,
+      features: ['Courier solution', 'Advanced Tracking', 'Priority Support', 'Lowest charges'],
+      buttonText: 'Pay Now',
+      theme: 'border-navy',
+      bg: 'bg-light-blue',
+      buttonClass: 'gradient-navy text-white'
+    },
+    {
+      name: 'Partial Amount',
+      price: 'Custom',
+      gst: 'Use this method if you want to pay a partial amount.',
+      popular: false,
+      features: ['Courier solution', 'Branding softcopy', 'Lowest charges'],
+      buttonText: 'Pay Now',
+      theme: 'border-soft-border',
+      bg: 'bg-gray-50',
+      buttonClass: 'bg-white text-charcoal border-2 border-soft-border hover:border-charcoal'
+    }
+  ];
 
   return (
     <>
@@ -38,60 +89,51 @@ export default function Pricing() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {pricingPlans.map((plan) => (
+            {plans.map((plan) => (
               <div
                 key={plan.name}
-                className={`relative flex flex-col bg-white rounded-2xl border-2 ${plan.theme} p-8 card-hover shadow-card`}
+                className={`relative flex flex-col bg-white rounded-2xl border-2 ${plan.theme} p-8 shadow-soft transition-all duration-300 hover:-translate-y-2`}
               >
                 {plan.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 gradient-orange text-white text-xs font-bold font-heading rounded-full shadow-orange uppercase tracking-wider">
-                    Most Popular
+                  <div className="absolute -top-4 inset-x-0 flex justify-center">
+                    <span className="bg-orange text-white text-xs font-bold uppercase tracking-wider py-1.5 px-4 rounded-full shadow-orange flex items-center gap-1.5">
+                      <FaStar size={12} className="text-white" /> Most Popular
+                    </span>
                   </div>
                 )}
 
-                <div className="mb-6">
-                  <h3 className="font-bold font-heading text-xl text-charcoal mb-2">
+                <div className={`p-4 rounded-xl ${plan.bg} mb-6 text-center`}>
+                  <h3 className="text-xl font-bold font-heading text-charcoal mb-2">
                     {plan.name}
                   </h3>
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-3xl md:text-4xl font-black font-heading text-charcoal">
-                      {plan.price}
-                    </span>
+                  <div className="text-3xl font-black font-heading text-charcoal">
+                    {plan.price}
                   </div>
-                  <p className="text-graphite/70 text-xs font-body">{plan.gst}</p>
+                  <div className="text-xs text-graphite font-medium mt-1">
+                    {plan.gst}
+                  </div>
                 </div>
 
-                <div className="h-px bg-soft-border mb-6" />
-
-                <ul className="space-y-3.5 mb-8 flex-1">
-                  {plan.features.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-center gap-3 text-sm text-charcoal font-body">
-                      <div className="w-5 h-5 rounded-full bg-navy-50 flex items-center justify-center shrink-0">
-                        <Check size={12} className="text-navy" />
-                      </div>
-                      <span>{feat}</span>
+                <ul className="flex-1 space-y-4 mb-8">
+                  {plan.features.map((feature, fIdx) => (
+                    <li key={fIdx} className="flex items-start gap-3">
+                      <FaCheckCircle className="text-green-500 mt-1 flex-shrink-0" size={14} />
+                      <span className="text-graphite font-body text-sm font-medium">
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>
 
                 <button
+                  type="button"
                   onClick={() => handlePay(plan)}
-                  className={`w-full py-3.5 font-bold font-heading rounded-btn transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 text-center ${plan.buttonClass}`}
+                  className={`block text-center w-full py-3.5 rounded-btn font-bold font-heading transition-all duration-200 ${plan.buttonClass}`}
                 >
                   {plan.buttonText}
                 </button>
               </div>
             ))}
-          </div>
-
-          {/* Guarantee / Security info strip */}
-          <div className="mt-16 text-center max-w-xl mx-auto">
-            <div className="inline-flex items-center gap-2 text-graphite font-body text-xs md:text-sm">
-              <ShieldCheck size={18} className="text-orange" />
-              <span>
-                All transactions processed securely via Razorpay with instant digital invoice.
-              </span>
-            </div>
           </div>
         </div>
       </section>

@@ -1,8 +1,9 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Check, ChevronRight } from 'lucide-react';
+import { FaCheckCircle, FaArrowRight } from '../components/IconHelper';
 import { useMeta } from '../hooks/useMeta';
-import PageHeader from '../components/layout/PageHeader';
-import IconHelper from '../components/common/IconHelper';
+import PageHeader from '../components/PageHeader';
+import IconHelper from '../components/IconHelper';
 import { servicesData } from '../data/siteData';
 
 export default function Services() {
@@ -59,13 +60,10 @@ export default function Services() {
                             key={bIdx}
                             className="flex items-start gap-2 text-sm font-body text-graphite"
                           >
-                            <Check
+                            <FaCheckCircle
                               size={12}
-                              className={
-                                bIdx % 2 === 0
-                                  ? 'text-navy mt-0.5 shrink-0'
-                                  : 'text-orange mt-0.5 shrink-0'
-                              }
+                              className={`mt-0.5 shrink-0 ${bIdx % 2 === 0 ? 'text-navy' : 'text-orange'
+                                }`}
                             />
                             <span>{benefit}</span>
                           </li>
@@ -78,22 +76,21 @@ export default function Services() {
                             Delivery Time
                           </div>
                           <div
-                            className={`font-semibold font-heading text-sm ${
-                              isEven ? 'text-orange' : 'text-navy'
-                            }`}
+                            className={`font-semibold font-heading text-sm ${isEven ? 'text-orange' : 'text-navy'
+                              }`}
                           >
                             {srv.timeline}
                           </div>
                         </div>
+
                         <Link
                           to="/contact"
-                          className={`flex items-center gap-1.5 px-4 py-2.5 text-white text-sm font-semibold font-heading rounded-btn hover:-translate-y-0.5 transition-all duration-200 ${
-                            isEven
-                              ? 'gradient-orange shadow-orange-sm hover:shadow-orange'
-                              : 'gradient-navy shadow-navy-sm hover:shadow-navy'
-                          }`}
+                          className={`flex items-center gap-1.5 px-4 py-2.5 text-white text-sm font-semibold font-heading rounded-btn hover:-translate-y-0.5 transition-all duration-200 ${isEven
+                            ? 'gradient-orange shadow-orange-sm hover:shadow-orange'
+                            : 'gradient-navy shadow-navy-sm hover:shadow-navy'
+                            }`}
                         >
-                          Get a Quote <ChevronRight size={11} />
+                          Get a Quote <FaArrowRight size={11} />
                         </Link>
                       </div>
                     </div>
@@ -105,7 +102,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Bottom Enterprise Banner Section */}
+      {/* Enterprise CTA Section */}
       <section className="py-16 bg-light-blue border-t border-soft-border">
         <div className="container-custom text-center">
           <h2 className="text-3xl font-bold font-heading text-charcoal mb-3">
@@ -118,7 +115,7 @@ export default function Services() {
             to="/contact"
             className="inline-flex items-center gap-2 px-8 py-3.5 gradient-navy text-white font-semibold font-heading rounded-btn shadow-navy hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
           >
-            Contact Our Enterprise Team <ChevronRight size={14} />
+            Talk to Our Team <FaArrowRight size={14} />
           </Link>
         </div>
       </section>

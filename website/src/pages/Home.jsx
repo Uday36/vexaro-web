@@ -1,10 +1,16 @@
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Navigation, ArrowRight, Sparkles } from 'lucide-react';
+import {
+  MdNavigation,
+  FaArrowRight,
+  FaBoltSolid,
+  FaLocationArrow
+} from '../components/IconHelper';
 import { useMeta } from '../hooks/useMeta';
-import StatCounter from '../components/common/StatCounter';
-import ShipmentJourney from '../components/sections/ShipmentJourney';
-import TestimonialsSlider from '../components/sections/TestimonialsSlider';
-import IconHelper from '../components/common/IconHelper';
+import StatCounter from '../components/StatCounter';
+import ShipmentJourney from '../components/ShipmentJourney';
+import TestimonialsSlider from '../components/TestimonialsSlider';
+import IconHelper from '../components/IconHelper';
 import {
   homeStats,
   aboutFeatures,
@@ -19,10 +25,29 @@ export default function Home() {
       "VEXARO — India's modern courier partner. Express delivery, B2B courier services, e-commerce shipping across 100+ cities."
   });
 
+  const heroRef = useRef(null);
+  const [heroScroll, setHeroScroll] = useState({ opacity: 1, y: 0 });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current) return;
+      const rect = heroRef.current.getBoundingClientRect();
+      const heroHeight = heroRef.current.offsetHeight || window.innerHeight;
+      const progress = Math.min(Math.max(-rect.top / heroHeight, 0), 1);
+      setHeroScroll({
+        y: progress * 15,
+        opacity: Math.max(1 - progress / 0.7, 0)
+      });
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       {/* 1. HERO SECTION */}
       <section
+        ref={heroRef}
         className="relative flex items-center overflow-hidden bg-white"
         style={{ minHeight: '100vh' }}
       >
@@ -44,7 +69,13 @@ export default function Home() {
         </div>
 
         {/* Content Container */}
-        <div className="container-custom relative z-10 w-full">
+        <div
+          className="container-custom relative z-10 w-full transition-transform duration-75 will-change-transform"
+          style={{
+            opacity: heroScroll.opacity,
+            transform: `translateY(${heroScroll.y}%)`
+          }}
+        >
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12 min-h-screen pt-16 md:pt-24 lg:pt-28 pb-6 md:pb-10">
             <div className="flex-1 max-w-xl lg:max-w-[50%] z-20">
               {/* Badge */}
@@ -57,7 +88,7 @@ export default function Home() {
 
               {/* Headline */}
               <h1 className="text-5xl md:text-[4rem] lg:text-[4.5rem] font-black font-heading text-charcoal leading-[1.05] tracking-tighter mb-4 md:mb-6">
-                DELIVERING{' '}
+                DELIVERING
                 <span className="inline-block text-orange relative">
                   TRUST.
                   <svg
@@ -90,14 +121,14 @@ export default function Home() {
                   to="/track"
                   className="flex items-center justify-center gap-2 px-6 py-3 bg-navy text-white font-bold font-heading rounded-full shadow-[0_8px_30px_rgba(26,58,143,0.3)] hover:shadow-[0_8px_30px_rgba(26,58,143,0.5)] hover:-translate-y-1 transition-all duration-300 text-base"
                 >
-                  <Navigation size={20} className="-rotate-45" /> Track Shipment
+                  <MdNavigation size={20} /> Track Shipment
                 </Link>
                 <Link
                   to="/contact"
                   className="flex items-center justify-center gap-2 px-6 py-3 bg-white/90 backdrop-blur-sm text-charcoal border-2 border-soft-border font-bold font-heading rounded-full hover:border-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 text-base group"
                 >
                   Get a Quote{' '}
-                  <ArrowRight
+                  <FaArrowRight
                     size={14}
                     className="group-hover:translate-x-1 transition-transform"
                   />
@@ -167,7 +198,7 @@ export default function Home() {
                 to="/about"
                 className="inline-flex items-center gap-2 text-navy font-semibold font-heading hover:gap-3 transition-all duration-200"
               >
-                Learn our story <ArrowRight size={13} />
+                Learn our story <FaArrowRight size={13} />
               </Link>
             </div>
 
@@ -189,9 +220,8 @@ export default function Home() {
                   )}
                   <div className="p-5 flex-1 flex flex-col">
                     <div
-                      className={`w-10 h-10 rounded-lg bg-navy-50 border border-navy/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform ${
-                        item.image ? '-mt-10 shadow-md relative z-10 bg-white' : ''
-                      }`}
+                      className={`w-10 h-10 rounded-lg bg-navy-50 border border-navy/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform ${item.image ? '-mt-10 shadow-md relative z-10 bg-white' : ''
+                        }`}
                     >
                       <IconHelper name={item.icon} size={20} className="text-navy" />
                     </div>
@@ -234,20 +264,18 @@ export default function Home() {
                   className="bg-white border border-soft-border p-6 rounded-card card-hover cursor-pointer group flex flex-col block"
                 >
                   <div
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 shadow-sm transition-all duration-300 ${
-                      isEven
-                        ? 'bg-orange-50 border border-orange/20 group-hover:gradient-orange'
-                        : 'bg-navy-50 border border-navy/20 group-hover:gradient-navy'
-                    }`}
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 shadow-sm transition-all duration-300 ${isEven
+                      ? 'bg-orange-50 border border-orange/20 group-hover:gradient-orange'
+                      : 'bg-navy-50 border border-navy/20 group-hover:gradient-navy'
+                      }`}
                   >
                     <IconHelper
                       name={srv.icon}
                       size={20}
-                      className={`transition-colors duration-300 ${
-                        isEven
-                          ? 'text-orange group-hover:text-white'
-                          : 'text-navy group-hover:text-white'
-                      }`}
+                      className={`transition-colors duration-300 ${isEven
+                        ? 'text-orange group-hover:text-white'
+                        : 'text-navy group-hover:text-white'
+                        }`}
                     />
                   </div>
                   <h3 className="font-semibold font-heading text-charcoal mb-2 text-sm">
@@ -257,9 +285,8 @@ export default function Home() {
                     {srv.description}
                   </p>
                   <div
-                    className={`text-xs font-medium font-heading ${
-                      isEven ? 'text-orange' : 'text-navy'
-                    }`}
+                    className={`text-xs font-medium font-heading ${isEven ? 'text-orange' : 'text-navy'
+                      }`}
                   >
                     {srv.timeline}
                   </div>
@@ -273,7 +300,7 @@ export default function Home() {
               to="/services"
               className="inline-flex items-center gap-2 px-8 py-3.5 gradient-navy text-white font-semibold font-heading rounded-btn shadow-navy hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
             >
-              View All Services <ArrowRight size={14} />
+              View All Services <FaArrowRight size={14} />
             </Link>
           </div>
         </div>
@@ -313,20 +340,18 @@ export default function Home() {
                 )}
                 <div className="p-6 flex-1 flex flex-col">
                   <div
-                    className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 ${
-                      item.color === 'orange'
-                        ? 'bg-orange-50 border border-orange/15 group-hover:gradient-orange'
-                        : 'bg-navy-50 border border-navy/15 group-hover:gradient-navy'
-                    } ${item.image ? '-mt-11 shadow-lg relative z-10 bg-white' : ''}`}
+                    className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 ${item.color === 'orange'
+                      ? 'bg-orange-50 border border-orange/15 group-hover:gradient-orange'
+                      : 'bg-navy-50 border border-navy/15 group-hover:gradient-navy'
+                      } ${item.image ? '-mt-11 shadow-lg relative z-10 bg-white' : ''}`}
                   >
                     <IconHelper
                       name={item.icon}
                       size={20}
-                      className={`transition-colors duration-300 ${
-                        item.color === 'orange'
-                          ? 'text-orange group-hover:text-white'
-                          : 'text-navy group-hover:text-white'
-                      }`}
+                      className={`transition-colors duration-300 ${item.color === 'orange'
+                        ? 'text-orange group-hover:text-white'
+                        : 'text-navy group-hover:text-white'
+                        }`}
                     />
                   </div>
                   <h3 className="font-semibold font-heading text-charcoal mb-2">{item.title}</h3>
@@ -382,21 +407,21 @@ export default function Home() {
         <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:38px_38px]" />
         <div
           aria-hidden="true"
-          className="absolute left-0 top-10 h-px w-72 bg-gradient-to-r from-transparent via-orange to-transparent animate-shimmer"
+          className="pointer-events-none absolute left-0 top-10 h-px w-72 bg-gradient-to-r from-transparent via-orange to-transparent animate-laser-streak-cta"
         />
         <div
           aria-hidden="true"
-          className="absolute -right-28 -bottom-28 w-72 h-72 rounded-full border border-white/10"
+          className="pointer-events-none absolute -right-28 -bottom-28 w-72 h-72 rounded-full border border-white/10 animate-spin-slow"
         />
         <div
           aria-hidden="true"
-          className="absolute left-[8%] top-16 h-16 w-16 rounded-full border border-orange/40 shadow-[0_0_50px_rgba(224,96,0,0.35)]"
+          className="pointer-events-none absolute left-[8%] top-16 h-16 w-16 rounded-full border border-orange/40 shadow-[0_0_50px_rgba(224,96,0,0.35)] animate-float-orb"
         />
 
         <div className="container-custom relative text-center">
           <div className="max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/15 rounded-full mb-5">
-              <Sparkles className="text-orange" size={11} />
+              <FaBoltSolid className="text-orange" size={11} />
               <span className="text-white/75 text-xs font-medium font-heading uppercase tracking-wider">
                 Courier Services That Move With You
               </span>
@@ -412,13 +437,13 @@ export default function Home() {
                 to="/contact"
                 className="inline-flex items-center gap-2 px-8 py-3.5 gradient-orange text-white font-semibold font-heading rounded-btn shadow-orange hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
               >
-                Get a Free Quote <ArrowRight size={14} />
+                Get a Free Quote <FaLocationArrow size={13} className="-rotate-45" />
               </Link>
               <Link
                 to="/track"
                 className="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-white/30 text-white font-semibold font-heading rounded-btn hover:border-orange hover:text-orange transition-all duration-200"
               >
-                <Navigation size={14} className="-rotate-45" /> Track Shipment
+                <MdNavigation size={15} /> Track a Shipment
               </Link>
             </div>
           </div>
@@ -441,7 +466,7 @@ export default function Home() {
               to="/contact"
               className="flex items-center gap-2 text-navy font-semibold font-heading hover:gap-3 transition-all duration-200 whitespace-nowrap text-sm"
             >
-              Reach Us <ArrowRight size={13} />
+              Reach Us <FaArrowRight size={13} />
             </Link>
           </div>
         </div>

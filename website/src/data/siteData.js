@@ -550,10 +550,10 @@ export const legalData = {
     subtitle: "Useful service guidance for businesses planning shipping, fulfilment, and delivery operations.",
     seoTitle: "Resources",
     items: [
-      "Choose Express Delivery for urgent next-day requirements and Same-Day for immediate city deliveries.",
-      "Use B2B contracts for scheduled corporate dispatches and custom SLA requirements.",
-      "Ensure parcel packaging is tamper-evident and appropriately sized to prevent transit damage.",
-      "Verify pin code serviceability and recipient mobile numbers before dispatch to minimise delivery reattempts."
+      "Choose Express Delivery for time-sensitive metro and business corridor shipments.",
+      "Use B2B Services for scheduled bulk movement, SLA-based operations, and account-managed dispatches.",
+      "Use Warehousing Solutions when inventory storage, packing, and fulfilment need to move together.",
+      "Use Returns Management to simplify returns, pickup coordination, and seller-side visibility."
     ]
   }
 };

@@ -12,5 +12,9 @@
   "type": "commonjs",
   "devDependencies": {
     "playwright": "^1.65.1"
+  },
+  "dependencies": {
+    "framer-motion": "^14.14.0",
+    "three": "^0.187.0"
   }
 }

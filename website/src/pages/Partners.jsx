@@ -1,10 +1,18 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, ShoppingBag, Briefcase, Cpu, Check, ChevronRight } from 'lucide-react';
+import {
+  FaTruck,
+  FaShoppingCart,
+  FaGlobeAmericas,
+  FaHandshake,
+  FaCheckCircle,
+  FaArrowRight
+} from '../components/IconHelper';
 import { useMeta } from '../hooks/useMeta';
-import PageHeader from '../components/layout/PageHeader';
+import PageHeader from '../components/PageHeader';
 import { partnerCategories, partnersList } from '../data/siteData';
 
-export default function Partners() {
+function Partners() {
   useMeta({
     title: 'Partners',
     description:
@@ -16,15 +24,18 @@ export default function Partners() {
     const cls = isOrange ? 'text-orange' : 'text-navy';
     switch (iconName) {
       case 'truck':
-        return <Truck size={22} className={cls} />;
+        return <FaTruck size={22} className={cls} />;
       case 'shoppingBag':
-        return <ShoppingBag size={22} className={cls} />;
+      case 'shoppingCart':
+        return <FaShoppingCart size={22} className={cls} />;
       case 'briefcase':
-        return <Briefcase size={22} className={cls} />;
+      case 'globe':
+        return <FaGlobeAmericas size={22} className={cls} />;
       case 'cpu':
-        return <Cpu size={22} className={cls} />;
+      case 'handshake':
+        return <FaHandshake size={22} className={cls} />;
       default:
-        return <Truck size={22} className={cls} />;
+        return <FaTruck size={22} className={cls} />;
     }
   };
 
@@ -55,11 +66,10 @@ export default function Partners() {
                 className="bg-white border border-soft-border rounded-card p-6 card-hover group text-center transition-all duration-300"
               >
                 <div
-                  className={`w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
-                    cat.color === 'orange'
-                      ? 'bg-orange-50 border border-orange/15'
-                      : 'bg-navy-50 border border-navy/15'
-                  }`}
+                  className={`w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm ${cat.color === 'orange'
+                    ? 'bg-orange-50 border border-orange/15'
+                    : 'bg-navy-50 border border-navy/15'
+                    }`}
                 >
                   {getCategoryIcon(cat.icon, cat.color)}
                 </div>
@@ -69,53 +79,45 @@ export default function Partners() {
             ))}
           </div>
 
-          {/* 2. Trusted By */}
+          {/* 2. Trusted By Grid */}
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold font-heading text-charcoal mb-2">Trusted By</h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
             {partnersList.map((partner, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-soft-border rounded-card p-6 card-hover flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4 w-full min-h-full break-words"
+                className="border border-soft-border rounded-card p-6 hover:shadow-card transition-all duration-300 flex flex-col justify-between"
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center shrink-0 overflow-hidden">
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="w-full h-full object-contain"
-                  />
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-heading font-bold text-lg text-charcoal">
+                      {partner.name}
+                    </span>
+                    <span className="text-[11px] font-heading font-medium px-2.5 py-1 rounded-full bg-light-blue text-navy">
+                      {partner.cat}
+                    </span>
+                  </div>
+                  <p className="text-graphite text-sm font-body mb-6">{partner.desc}</p>
                 </div>
-                <div className="w-full flex-1 min-w-0">
-                  <div className="font-bold font-heading text-charcoal text-base md:text-lg">
-                    {partner.name}
-                  </div>
-                  <div
-                    className={`text-xs md:text-sm font-heading font-medium mb-1 ${
-                      idx % 2 === 0 ? 'text-navy' : 'text-orange'
-                    }`}
-                  >
-                    {partner.cat}
-                  </div>
-                  <p className="text-graphite text-xs md:text-sm font-body leading-relaxed break-words">
-                    {partner.desc}
-                  </p>
+                <div className="border-t border-soft-border pt-4 flex items-center justify-between">
+                  <span className="text-xs text-graphite/60 font-body">Integration Status</span>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 font-heading">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    Live & Active
+                  </span>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* 3. Become a VEXARO Partner (Two-column layout matching live) */}
-      <section className="section-padding bg-light-blue border-t border-soft-border">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* 3. Become a Partner CTA */}
+          <div className="bg-light-blue border border-soft-border rounded-card p-8 md:p-12 grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-soft-border rounded-full mb-4 shadow-card">
-                <span className="text-navy text-xs font-medium font-heading uppercase tracking-wider">
-                  Join Us
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-orange-50 border border-orange/20 rounded-full mb-4">
+                <span className="text-orange text-xs font-medium font-heading uppercase tracking-wider">
+                  Join the Network
                 </span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold font-heading text-charcoal mb-5">
@@ -123,9 +125,8 @@ export default function Partners() {
                 <span className="gradient-text-navy">VEXARO Partner</span>
               </h2>
               <p className="text-graphite font-body leading-relaxed mb-6">
-                Whether you're a last-mile delivery agent, a fleet operator, an e-commerce
-                business, or a technology company — there's a partnership model built for you at
-                VEXARO.
+                Whether you're a last-mile delivery agent, a fleet operator, an e-commerce business,
+                or a technology company — there's a partnership model built for you at VEXARO.
               </p>
               <ul className="space-y-3 mb-8">
                 {[
@@ -138,7 +139,7 @@ export default function Partners() {
                     key={idx}
                     className="flex items-center gap-3 text-charcoal text-sm font-body"
                   >
-                    <Check
+                    <FaCheckCircle
                       className={idx % 2 === 0 ? 'text-navy' : 'text-orange'}
                       size={14}
                     />
@@ -150,28 +151,26 @@ export default function Partners() {
                 to="/contact"
                 className="inline-flex items-center gap-2 px-7 py-3.5 gradient-orange text-white font-semibold font-heading rounded-btn shadow-orange hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
               >
-                Become a Partner <ChevronRight size={14} />
+                Become a Partner <FaArrowRight size={14} />
               </Link>
             </div>
 
-            {/* Right 4 Stat Cards */}
             <div className="grid grid-cols-2 gap-4">
               {[
                 { v: '100+', l: 'Cities' },
                 { v: '300+', l: 'Clients' },
                 { v: '2.5K+', l: 'Daily Shipments' },
                 { v: '98%', l: 'Success Rate' }
-              ].map((item, idx) => (
+              ].map((stat, idx) => (
                 <div
                   key={idx}
-                  className={`rounded-card p-6 text-center ${
-                    idx % 2 === 0 ? 'gradient-navy' : 'gradient-orange'
-                  }`}
+                  className={`rounded-card p-6 text-center ${idx % 2 === 0 ? 'gradient-navy' : 'gradient-orange'
+                    }`}
                 >
                   <div className="text-2xl sm:text-3xl font-bold font-heading text-white mb-1 break-words">
-                    {item.v}
+                    {stat.v}
                   </div>
-                  <div className="text-white/70 text-xs sm:text-sm font-body">{item.l}</div>
+                  <div className="text-white/70 text-xs sm:text-sm font-body">{stat.l}</div>
                 </div>
               ))}
             </div>
@@ -181,3 +180,6 @@ export default function Partners() {
     </>
   );
 }
+
+export { Partners };
+export default Partners;

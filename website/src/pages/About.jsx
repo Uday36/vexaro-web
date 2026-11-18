@@ -1,7 +1,14 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Check, Target, Eye, Heart, ArrowRight } from 'lucide-react';
+import {
+  FaUsers,
+  FaEye,
+  FaHeart,
+  FaCheckCircle,
+  FaArrowRight
+} from '../components/IconHelper';
 import { useMeta } from '../hooks/useMeta';
-import PageHeader from '../components/layout/PageHeader';
+import PageHeader from '../components/PageHeader';
 
 export default function About() {
   useMeta({
@@ -12,19 +19,19 @@ export default function About() {
 
   const foundation = [
     {
-      icon: <Target size={22} className="text-orange" />,
+      icon: <FaUsers size={22} className="text-orange" />,
       title: 'Our Mission',
       text: 'To make courier services effortless for every Indian business — from first-time entrepreneurs to established enterprises — through technology, reliability, and genuine care.',
       bg: 'bg-orange-50 border-orange/20'
     },
     {
-      icon: <Eye size={22} className="text-navy" />,
+      icon: <FaEye size={22} className="text-navy" />,
       title: 'Our Vision',
       text: "To become India's most trusted courier technology company — powering commerce across every city, town, and village with speed and transparency.",
       bg: 'bg-navy-50 border-navy/20'
     },
     {
-      icon: <Heart size={22} className="text-orange" />,
+      icon: <FaHeart size={22} className="text-orange" />,
       title: 'Our Values',
       text: 'Trust over transactions. Speed with safety. Technology with humanity. Every shipment tells a story — and we treat each one with the respect it deserves.',
       bg: 'bg-orange-50 border-orange/20'
@@ -117,7 +124,7 @@ export default function About() {
                     key={idx}
                     className="flex items-center gap-3 text-charcoal text-sm font-body"
                   >
-                    <Check
+                    <FaCheckCircle
                       className={idx % 2 === 0 ? 'text-navy' : 'text-orange'}
                       size={14}
                     />
@@ -147,9 +154,8 @@ export default function About() {
                     ].map((stat, idx) => (
                       <div
                         key={idx}
-                        className={`rounded-xl p-4 text-center text-white ${
-                          idx % 2 === 0 ? 'gradient-navy' : 'gradient-orange'
-                        }`}
+                        className={`rounded-xl p-4 text-center text-white ${idx % 2 === 0 ? 'gradient-navy' : 'gradient-orange'
+                          }`}
                       >
                         <div className="text-2xl font-bold font-heading">{stat.v}</div>
                         <div className="text-white/70 text-xs font-body">{stat.l}</div>
@@ -251,9 +257,8 @@ export default function About() {
             {networkStats.map((item, idx) => (
               <div
                 key={idx}
-                className={`rounded-card p-6 text-center text-white ${
-                  idx % 2 === 0 ? 'gradient-navy' : 'gradient-orange'
-                }`}
+                className={`rounded-card p-6 text-center text-white ${idx % 2 === 0 ? 'gradient-navy' : 'gradient-orange'
+                  }`}
               >
                 <div className="text-3xl font-bold font-heading mb-1">{item.v}</div>
                 <div className="text-white font-semibold font-heading text-sm mb-1">{item.l}</div>
@@ -265,7 +270,7 @@ export default function About() {
             to="/contact"
             className="inline-flex items-center gap-2 px-8 py-3.5 gradient-orange text-white font-semibold font-heading rounded-btn shadow-orange hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
           >
-            Partner With Us <ArrowRight size={14} />
+            Partner With Us <FaArrowRight size={14} />
           </Link>
         </div>
       </section>

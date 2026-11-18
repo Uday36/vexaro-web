@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { Search, MapPin, Check, Clock, AlertCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { FaSearch, FaCheckCircle, FaMapMarkerAlt } from '../components/IconHelper';
 import { useMeta } from '../hooks/useMeta';
-import PageHeader from '../components/layout/PageHeader';
+import PageHeader from '../components/PageHeader';
 import { trackingDatabase, statusBadges } from '../data/siteData';
 
 export default function Track() {
@@ -81,7 +81,7 @@ export default function Track() {
                 {loading ? (
                   <div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
                 ) : (
-                  <Search size={14} />
+                  <FaSearch size={13} />
                 )}
                 <span>Track</span>
               </button>
@@ -102,43 +102,52 @@ export default function Track() {
             </div>
           </div>
 
-          {/* Error Alert */}
+          {/* Error Message */}
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 rounded-card px-5 py-4 text-sm font-body mb-6 flex items-center gap-2 animate-fade-in">
-              <AlertCircle size={16} className="text-red-500 shrink-0" />
-              <span>{error}</span>
+            <div className="bg-red-50 border border-red-200 text-red-700 rounded-card px-5 py-4 text-sm font-body mb-6">
+              {error}
             </div>
           )}
 
-          {/* Result Presentation Card */}
+          {/* Results Box */}
           {result && (
-            <div className="space-y-5 animate-fade-in">
-              <div className="bg-light-blue border border-soft-border rounded-card p-6 shadow-card">
-                <div className="flex items-start justify-between flex-wrap gap-4">
+            <div className="space-y-6">
+              {/* Status Header Card */}
+              <div className="bg-white border border-soft-border rounded-card p-6 shadow-card">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-soft-border/60">
                   <div>
-                    <div className="text-graphite/60 text-xs font-body mb-1">Tracking Number</div>
-                    <div className="text-charcoal font-bold font-heading text-xl">{result.awb}</div>
+                    <span className="text-xs text-graphite/60 font-body uppercase tracking-wider block mb-1">
+                      AWB Number
+                    </span>
+                    <span className="text-xl font-bold font-heading text-charcoal">
+                      {result.awb}
+                    </span>
                   </div>
                   <div
-                    className={`px-4 py-2 rounded-full border text-sm font-semibold font-heading ${
-                      statusBadges[result.status]?.bg
-                    } ${statusBadges[result.status]?.color}`}
+                    className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-heading font-semibold ${
+                      statusBadges[result.status]?.bg || 'bg-light-blue text-navy'
+                    }`}
                   >
-                    {statusBadges[result.status]?.label}
+                    <span
+                      className={`w-2 h-2 rounded-full ${
+                        statusBadges[result.status]?.dot || 'bg-navy'
+                      } animate-pulse`}
+                    />
+                    {result.status}
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-5 pt-5 border-t border-soft-border">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
                   <div>
                     <div className="text-graphite/60 text-xs font-body mb-1">Origin</div>
-                    <div className="text-charcoal font-semibold text-sm font-body flex items-center gap-1">
-                      <MapPin size={12} className="text-navy" /> {result.origin}
+                    <div className="text-charcoal font-semibold text-sm font-body">
+                      {result.origin}
                     </div>
                   </div>
                   <div>
                     <div className="text-graphite/60 text-xs font-body mb-1">Destination</div>
-                    <div className="text-charcoal font-semibold text-sm font-body flex items-center gap-1">
-                      <MapPin size={12} className="text-orange" /> {result.destination}
+                    <div className="text-charcoal font-semibold text-sm font-body">
+                      {result.destination}
                     </div>
                   </div>
                   <div>
@@ -163,44 +172,53 @@ export default function Track() {
 
               {/* Step Timeline */}
               <div className="bg-white border border-soft-border rounded-card p-6 shadow-sm">
-                <h3 className="font-bold font-heading text-charcoal text-base mb-6">
-                  Shipment Activity
+                <h3 className="font-bold font-heading text-charcoal mb-6">
+                  Shipment Timeline
                 </h3>
-                <div className="space-y-6">
+                <div>
                   {result.timeline.map((step, idx) => (
-                    <div key={idx} className="flex items-start gap-4 relative">
+                    <div key={idx} className="flex gap-4 relative">
                       {/* Vertical line connecting nodes */}
-                      {idx !== result.timeline.length - 1 && (
+                      {idx < result.timeline.length - 1 && (
                         <div
-                          className={`absolute left-3.5 top-7 bottom-0 w-0.5 ${
-                            step.done ? 'bg-navy' : 'bg-soft-border'
+                          className={`absolute left-4 top-8 w-0.5 h-7 ${
+                            step.done ? 'bg-navy/30' : 'bg-soft-border'
                           }`}
                         />
                       )}
 
                       <div
-                        className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 relative z-10 ${
-                          step.done ? 'gradient-navy text-white shadow-sm' : 'bg-gray-100 text-gray-400 border border-soft-border'
+                        className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 z-10 mt-0.5 ${
+                          step.done ? 'gradient-orange shadow-orange-sm' : 'bg-cream border-2 border-soft-border'
                         }`}
                       >
-                        {step.done ? <Check size={14} /> : <Clock size={12} />}
+                        {step.done ? (
+                          <FaCheckCircle size={12} className="text-white" />
+                        ) : (
+                          <div className="w-2 h-2 rounded-full bg-graphite/20" />
+                        )}
                       </div>
 
-                      <div className="flex-1">
-                        <div className="flex items-baseline justify-between flex-wrap">
-                          <h4
-                            className={`font-heading text-sm font-bold ${
-                              step.done ? 'text-charcoal' : 'text-graphite/50'
-                            }`}
-                          >
-                            {step.step}
-                          </h4>
-                          <span className="text-xs text-graphite/60 font-body">{step.date}</span>
+                      <div className="pb-6 flex-1">
+                        <div
+                          className={`font-semibold font-heading text-sm ${
+                            step.done ? 'text-charcoal' : 'text-graphite/40'
+                          }`}
+                        >
+                          {step.step}
                         </div>
-                        {step.location && (
-                          <p className="text-xs text-graphite font-body mt-0.5 flex items-center gap-1">
-                            <MapPin size={11} className="text-orange" /> {step.location}
-                          </p>
+                        {step.done ? (
+                          <>
+                            <div className="text-graphite text-xs font-body">{step.date}</div>
+                            {step.location && (
+                              <div className="text-graphite/60 text-xs font-body flex items-center gap-1 mt-0.5">
+                                <FaMapMarkerAlt size={9} className="text-orange" />
+                                {step.location}
+                              </div>
+                            )}
+                          </>
+                        ) : (
+                          <div className="text-graphite/35 text-xs font-body">Pending</div>
                         )}
                       </div>
                     </div>

@@ -19,6 +19,7 @@ const MIME_TYPES = {
   '.woff2': 'font/woff2'
 };
 
+// Simple static server with SPA fallback
 function createServer() {
   return http.createServer((req, res) => {
     let reqUrl = new URL(req.url, 'http://localhost');
@@ -39,7 +40,7 @@ function createServer() {
       const data = fs.readFileSync(filePath);
       res.writeHead(200, { 'Content-Type': contentType });
       res.end(data);
-    } catch {
+    } catch (e) {
       res.writeHead(500);
       res.end('Error loading file');
     }
@@ -67,9 +68,8 @@ const viewports = [
 
 async function main() {
   const server = createServer();
-  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
-  const port = server.address().port;
-  console.log(`Local static server running on http://127.0.0.1:${port}`);
+  await new Promise((resolve) => server.listen(3000, resolve));
+  console.log('Local static server running on http://localhost:3000');
 
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext();
@@ -83,20 +83,20 @@ async function main() {
 
     for (const vp of viewports) {
       await page.setViewportSize({ width: vp.width, height: vp.height });
-      const url = `http://127.0.0.1:${port}${r.path}`;
+      const url = `http://localhost:3000${r.path}`;
       await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
-      await page.waitForTimeout(400);
+      await page.waitForTimeout(600);
 
-      // Scroll to trigger elements
+      // Scroll to trigger any scroll reveals
       await page.evaluate(async () => {
         const height = document.body.scrollHeight;
-        for (let i = 0; i < height; i += 500) {
+        for (let i = 0; i < height; i += 400) {
           window.scrollTo(0, i);
-          await new Promise((r) => setTimeout(r, 20));
+          await new Promise((r) => setTimeout(r, 40));
         }
         window.scrollTo(0, 0);
       });
-      await page.waitForTimeout(300);
+      await page.waitForTimeout(400);
 
       const screenshotPath = path.join(pageDir, `${vp.name}.png`);
       await page.screenshot({
